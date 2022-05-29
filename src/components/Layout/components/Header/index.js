@@ -11,6 +11,7 @@ import classNames from "classnames/bind";
 import images from "~/assets/images";
 import { useEffect, useState } from "react";
 import AccountItem from "~/components/AccountItem";
+import Button from "~/components/Button";
 
 const cx = classNames.bind(styles);
 
@@ -66,7 +67,10 @@ function Header() {
 						</button>
 					</div>
 				</Tippy>
-				<div className={cx("acrions")}></div>
+				<div className={cx("actions")}>
+					<Button text>Upload</Button>
+					<Button primary>Login</Button>
+				</div>
 			</div>
 		</header>
 	);
