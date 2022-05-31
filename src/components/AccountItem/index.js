@@ -12,7 +12,7 @@ export default function AccountItem() {
 			<div className={cx("wrapper")}>
 				<img
 					className={cx("avatar")}
-					src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/466c70fb9e094cd8ffad1a3e39155a22~c5_300x300.webp?x-expires=1653890400&x-signature=NF0XvW4Y4IGtqMZYa1wco8oiqxQ%3D"
+					src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/21a2ca55ee14646d564526cf49fff838~c5_100x100.jpeg?x-expires=1654149600&x-signature=de6poaxFEkJksfk%2BVm2SreTqOI0%3D"
 					alt=""
 				/>
 				<div className={cx("info")}>
