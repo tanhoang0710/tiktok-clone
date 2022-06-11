@@ -8,7 +8,6 @@ import {
 	faEarthAsia,
 	faCircleQuestion,
 	faKeyboard,
-	faCloudUpload,
 	faCoins,
 	faGear,
 	faSignOut,
@@ -25,6 +24,8 @@ import AccountItem from "~/components/AccountItem";
 import Button from "~/components/Button";
 import Menu from "~/components/Popper/Menu";
 import { faUber } from "@fortawesome/free-brands-svg-icons";
+import { UploadIcon } from "~/components/Icons";
+import Image from "~/components/Image";
 
 const cx = classNames.bind(styles);
 
@@ -151,9 +152,7 @@ function Header() {
 								delay={[0, 200]}
 							>
 								<button className={cx("action-btn")}>
-									<FontAwesomeIcon
-										icon={faCloudUpload}
-									></FontAwesomeIcon>
+									<UploadIcon />
 								</button>
 							</Tippy>
 						</>
@@ -168,10 +167,11 @@ function Header() {
 						onChange={handleMenuChange}
 					>
 						{currentUser ? (
-							<img
+							<Image
 								src="https://p9-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/a6fb3b392232ae2da01dbd96e16c1714.jpeg?x-expires=1654408800&x-signature=2F%2BT21phk82eZ5BpQ2G4VM8lvf8%3D"
 								alt=""
 								className={cx("user-avatar")}
+								// fallback="https://static.fullstack.edu.vn/static/media/f8-icon.7ad2b161d5e80c87e516.png"
 							/>
 						) : (
 							<button className={cx("more-button")}>
