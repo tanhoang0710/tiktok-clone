@@ -54,6 +54,14 @@ export default function Search() {
 		setShowResult(false);
 	};
 
+	const handleChange = (e) => {
+		const searchValue = e.target.value;
+
+		if (!searchValue.startsWith(" ")) {
+			setSearchValue(searchValue);
+		}
+	};
+
 	return (
 		<>
 			<HeadlessTippy
@@ -80,7 +88,7 @@ export default function Search() {
 						type="text"
 						placeholder="Search accounts and videos"
 						spellCheck={false}
-						onChange={(e) => setSearchValue(e.target.value)}
+						onChange={handleChange}
 						value={searchValue}
 						ref={inputRef}
 						onFocus={() => setShowResult(true)}
@@ -96,7 +104,10 @@ export default function Search() {
 							icon={faSpinner}
 						/>
 					)}
-					<button className={cx("search-btn")}>
+					<button
+						className={cx("search-btn")}
+						onMouseDown={(e) => e.preventDefault()}
+					>
 						<SearchIcon />
 					</button>
 				</div>
