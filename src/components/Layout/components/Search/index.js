@@ -63,8 +63,11 @@ export default function Search() {
 	};
 
 	return (
-		<>
+		// Using a wrapper <div> or <span> tag around the reference element solves
+		// this by creating a new parentNode context.
+		<div>
 			<HeadlessTippy
+				appendTo={() => document.body}
 				render={(attrs) => (
 					<div
 						className={cx("search-result")}
@@ -112,6 +115,6 @@ export default function Search() {
 					</button>
 				</div>
 			</HeadlessTippy>
-		</>
+		</div>
 	);
 }
