@@ -39,31 +39,33 @@ export default function Menu({
 		});
 	};
 
+	const handleBack = () => {
+		setHistory((prev) => prev.slice(0, prev.length - 1));
+	};
+
+	const handleResult = (attrs) => (
+		<div className={cx("menu-list")} tabIndex="-1" {...attrs}>
+			<PopperWrapper className={cx("menu-popper")}>
+				{history.length > 1 && (
+					<Header title={current.title} onBack={handleBack} />
+				)}
+				<div className={cx("menu-body")}>{renderItems()}</div>
+			</PopperWrapper>
+		</div>
+	);
+
+	// Reset to first page
+	const handleResetMenu = () => {
+		setHistory((prev) => prev.slice(0, 1));
+	};
+
 	return (
 		<Tippy
-			render={(attrs) => (
-				<div className={cx("menu-list")} tabIndex="-1" {...attrs}>
-					<PopperWrapper className={cx("menu-popper")}>
-						{history.length > 1 && (
-							<Header
-								title={current.title}
-								onBack={() => {
-									setHistory((prev) =>
-										prev.slice(0, prev.length - 1)
-									);
-								}}
-							/>
-						)}
-						<div className={cx("menu-body")}>{renderItems()}</div>
-					</PopperWrapper>
-				</div>
-			)}
+			render={handleResult}
 			delay={[0, 800]}
 			interactive
 			placement="bottom-end"
-			onHide={() => {
-				setHistory((prev) => prev.slice(0, 1));
-			}}
+			onHide={handleResetMenu}
 			offset={[12, 8]}
 			hideOnClick={hideOnClick}
 		>
