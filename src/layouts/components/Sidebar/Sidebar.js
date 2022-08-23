@@ -1,5 +1,5 @@
-import classNames from "classnames/bind";
-import styles from "./Sidebar.module.scss";
+import classNames from 'classnames/bind';
+import styles from './Sidebar.module.scss';
 import {
 	HomeIcon,
 	HomeActiveIcon,
@@ -7,15 +7,16 @@ import {
 	UserGroupActiveIcon,
 	LiveIcon,
 	LiveActiveIcon,
-} from "~/components/Icons";
-import config from "~/config";
-import Menu, { MenuItem } from "../Menu";
+} from '~/components/Icons';
+import config from '~/config';
+import Menu, { MenuItem } from '../Menu';
+import SuggestedAccounts from '~/components/SuggestedAccounts';
 
 const cx = classNames.bind(styles);
 
 function Sidebar() {
 	return (
-		<aside className={cx("wrapper")}>
+		<aside className={cx('wrapper')}>
 			<Menu>
 				<MenuItem
 					title="For You"
@@ -36,6 +37,8 @@ function Sidebar() {
 					activeIcon={<LiveActiveIcon />}
 				/>
 			</Menu>
+			<SuggestedAccounts label="Suggested accounts" />
+			<SuggestedAccounts label="Following accounts" />
 		</aside>
 	);
 }
